@@ -1,0 +1,534 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="૮₍ ˃ ⤙ ˂ ₎ა " href="https://ayanamisaki.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="૮₍ ˃ ⤙ ˂ ₎ა " href="https://ayanamisaki.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="૮₍ ˃ ⤙ ˂ ₎ა " href="https://ayanamisaki.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://ayanamisaki.github.io/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/">
+
+
+
+  <title>
+Markdown使用简易教程 |
+ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">Markdown使用简易教程
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-03-18 13:02:53">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-03-18T13:02:53+08:00">2022-03-18</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">ayanamisaki</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexj2jgzj20zk0m8b09.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclh0m9pdj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicli9lfebj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipex2cdtbj20zk0m8x6p.jpg"></li>
+          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://ayanamisaki.github.io/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="ayanamisaki">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="૮₍ ˃ ⤙ ˂ ₎ა ">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="markdown使用简易教程"><a class="markdownIt-Anchor" href="#markdown使用简易教程">#</a> Markdown 使用简易教程</h1>
+<h2 id="标题"><a class="markdownIt-Anchor" href="#标题">#</a> 标题</h2>
+<p><code>n个井号 + 空格</code></p>
+<blockquote>
+<h1 id="一级标题"><a class="markdownIt-Anchor" href="#一级标题">#</a> 一级标题</h1>
+<p>#+ <kbd> </kbd></p>
+<h2 id="二级标题"><a class="markdownIt-Anchor" href="#二级标题">#</a> 二级标题</h2>
+<p>##+ <kbd> </kbd></p>
+<h3 id="三级标题"><a class="markdownIt-Anchor" href="#三级标题">#</a> 三级标题</h3>
+<p>###+ <kbd> </kbd></p>
+<h4 id="四级标题"><a class="markdownIt-Anchor" href="#四级标题">#</a> 四级标题</h4>
+<p>####+ <kbd> </kbd></p>
+<h5 id="五级标题"><a class="markdownIt-Anchor" href="#五级标题">#</a> 五级标题</h5>
+<p>#####+ <kbd> </kbd></p>
+<h6 id="六级标题"><a class="markdownIt-Anchor" href="#六级标题">#</a> 六级标题</h6>
+<p>######+ <kbd> </kbd></p>
+</blockquote>
+<h2 id="文字标注"><a class="markdownIt-Anchor" href="#文字标注">#</a> 文字标注</h2>
+<p><code>*斜体*</code> 	<em>斜体</em></p>
+<p><code>**粗体**</code> 	<strong>粗体</strong></p>
+<p><code>***斜体加粗***</code> 	<em><strong>斜体加粗</strong></em></p>
+<p><code>~~删除线~~</code> 	<s>删除线</s></p>
+<p 下划线=""><code>$\underline&#123;下划线&#125;$</code> 	\underline</p>
+<p>`` 短文字框～</p>
+<h2 id="注释引用"><a class="markdownIt-Anchor" href="#注释引用">#</a> 注释引用</h2>
+<p><code>&gt; 一级注释</code></p>
+<p><code>&gt;&gt; 多级注释</code></p>
+<blockquote>
+<p>一级注释</p>
+<blockquote>
+<p>二级注释</p>
+<blockquote>
+<blockquote>
+<p>四级注释～</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+<h2 id="标号"><a class="markdownIt-Anchor" href="#标号">#</a> 标号</h2>
+<p><code>- 无序列表</code></p>
+<ul>
+<li>无序列表
+<ul>
+<li>按<kbd>TAB</kbd>
+<ul>
+<li>缩进～</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<hr>
+<p><code>1. 有序列表</code></p>
+<ol>
+<li>first</li>
+<li>second
+<ol>
+<li>按<kbd>TAB</kbd></li>
+<li>缩进～</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p><code>- [ ] todo</code></p>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_0" checked="true" disabled="true"><label for="cbx_0"> 整理 Markdown 使用教程</label>
+<ul class="task-list">
+<li class="task-list-item"><input type="checkbox" id="cbx_1" disabled="true"><label for="cbx_1"> 发布到 Github~</label></li>
+</ul>
+</li>
+</ul>
+<h1 id="代码块"><a class="markdownIt-Anchor" href="#代码块">#</a> 代码块</h1>
+<p><code> ```C++</code></p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> std;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;ohyeah~&quot;</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="图片"><a class="markdownIt-Anchor" href="#图片">#</a> 图片</h2>
+<p><code>方法1：直接拖拽</code></p>
+<p><img data-src="/images/avatar.jpg" alt="avatar"></p>
+<p><code>方法2： ![图片名称](图片地址url)</code></p>
+<h2 id="网页链接"><a class="markdownIt-Anchor" href="#网页链接">#</a> 网页链接</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[显示的字符](url)</span><br></pre></td></tr></table></figure>
+<p><a href="ayanamisaki.github.io">ayanamisaki 的笔记本</a></p>
+<h2 id="表格"><a class="markdownIt-Anchor" href="#表格">#</a> 表格</h2>
+<p><code>这部分的语法太麻烦啦，Typora右键插入就好了</code></p>
+<table>
+<thead>
+<tr>
+<th>哟呼～</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="目录"><a class="markdownIt-Anchor" href="#目录">#</a> 目录</h2>
+<p><code>[TOC]插入目录</code> （好厉害！）</p>
+<h2 id="公式"><a class="markdownIt-Anchor" href="#公式">#</a> 公式</h2>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$$</span><br><span class="line">N_2^3</span><br><span class="line">$$</span><br></pre></td></tr></table></figure>
+<p><span class="katex-display"><span class="katex"><span class="katex-mathml"><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><msubsup><mi>N</mi><mn>2</mn><mn>3</mn></msubsup></mrow><annotation encoding="application/x-tex">N_2^3
+</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="base"><span class="strut" style="height:1.1111079999999998em;vertical-align:-0.247em;"></span><span class="mord"><span class="mord mathnormal" style="margin-right:0.10903em;">N</span><span class="msupsub"><span class="vlist-t vlist-t2"><span class="vlist-r"><span class="vlist" style="height:0.8641079999999999em;"><span style="top:-2.4530000000000003em;margin-left:-0.10903em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">2</span></span></span><span style="top:-3.113em;margin-right:0.05em;"><span class="pstrut" style="height:2.7em;"></span><span class="sizing reset-size6 size3 mtight"><span class="mord mtight">3</span></span></span></span><span class="vlist-s">​</span></span><span class="vlist-r"><span class="vlist" style="height:0.247em;"><span></span></span></span></span></span></span></span></span></span></span></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">P.S.</span><br><span class="line">	Markdown的优点是可以快速简单地把笔记写得整齐又好看！全程几乎小手不需要离开键盘，好快乐~哟呼~~</span><br><span class="line">	我用的编译器是Typora（开始收费了555）以及VScode，各有各的优点</span><br><span class="line">	看着笔记写完又整洁又漂亮，超有成就感噢！总之用Markdown写笔记好处多多！</span><br><span class="line">	（要是我高中的时候就学会这种方法，我还需要为学习而感到头疼吗！）</span><br><span class="line">	就酱~886</span><br></pre></td></tr></table></figure>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-03-18 13:08:37" itemprop="dateModified" datetime="2022-03-18T13:08:37+08:00">2022-03-18</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechat.png" alt="ayanamisaki 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="ayanamisaki 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ayanamisaki <i class="ic i-at"><em>@</em></i>૮₍ ˃ ⤙ ˂ ₎ა 
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://ayanamisaki.github.io/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/" title="Markdown使用简易教程">https://ayanamisaki.github.io/2022/03/18/Markdown使用简易教程/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/03/18/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B01%E4%BB%86%E4%BA%BA%E9%83%BD%E6%98%AF%E7%AC%A8%E8%9B%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="小月饼日记1:仆人都是笨蛋">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>小月饼日记1:仆人都是笨蛋</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B"><span class="toc-number">1.</span> <span class="toc-text"> Markdown 使用简易教程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E9%A2%98"><span class="toc-number">1.1.</span> <span class="toc-text"> 标题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.</span> <span class="toc-text"> 一级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.1.</span> <span class="toc-text"> 二级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%89%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.1.1.</span> <span class="toc-text"> 三级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.1.1.1.</span> <span class="toc-text"> 四级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BA%94%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.1.1.1.1.</span> <span class="toc-text"> 五级标题</span></a><ol class="toc-child"><li class="toc-item toc-level-6"><a class="toc-link" href="#%E5%85%AD%E7%BA%A7%E6%A0%87%E9%A2%98"><span class="toc-number">2.1.1.1.1.1.</span> <span class="toc-text"> 六级标题</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%87%E5%AD%97%E6%A0%87%E6%B3%A8"><span class="toc-number">2.2.</span> <span class="toc-text"> 文字标注</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E9%87%8A%E5%BC%95%E7%94%A8"><span class="toc-number">2.3.</span> <span class="toc-text"> 注释引用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%8F%B7"><span class="toc-number">2.4.</span> <span class="toc-text"> 标号</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E5%9D%97"><span class="toc-number">3.</span> <span class="toc-text"> 代码块</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%BE%E7%89%87"><span class="toc-number">3.1.</span> <span class="toc-text"> 图片</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BD%91%E9%A1%B5%E9%93%BE%E6%8E%A5"><span class="toc-number">3.2.</span> <span class="toc-text"> 网页链接</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A8%E6%A0%BC"><span class="toc-number">3.3.</span> <span class="toc-text"> 表格</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%AE%E5%BD%95"><span class="toc-number">3.4.</span> <span class="toc-text"> 目录</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AC%E5%BC%8F"><span class="toc-number">3.5.</span> <span class="toc-text"> 公式</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ayanamisaki"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">ayanamisaki</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">3</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>朋友圈</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/17/hello-world/" title="初めまして！">初めまして！</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/18/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B01%E4%BB%86%E4%BA%BA%E9%83%BD%E6%98%AF%E7%AC%A8%E8%9B%8B/" title="小月饼日记1:仆人都是笨蛋">小月饼日记1:仆人都是笨蛋</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/" title="Markdown使用简易教程">Markdown使用简易教程</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ayanamisaki @ ayanamisaki</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/03/18/Markdown使用简易教程/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
