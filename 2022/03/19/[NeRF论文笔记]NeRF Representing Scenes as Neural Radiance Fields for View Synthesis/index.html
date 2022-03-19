@@ -25,12 +25,12 @@
 
   
 
-<link rel="canonical" href="https://ayanamisaki.github.io/2022/03/18/NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B01-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/">
+<link rel="canonical" href="https://ayanamisaki.github.io/2022/03/19/[NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0]NeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/">
 
 
 
   <title>
-NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis |
+NeRF论文笔记1-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis |
 ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <meta name="generator" content="Hexo 5.4.1"></head>
 <body itemscope itemtype="http://schema.org/WebPage">
@@ -58,16 +58,16 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
         <div id="brand">
           <div class="pjax">
           
-  <h1 itemprop="name headline">NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis
+  <h1 itemprop="name headline">NeRF论文笔记1-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis
   </h1>
   
 <div class="meta">
-  <span class="item" title="创建时间：2022-03-18 15:37:44">
+  <span class="item" title="创建时间：2022-03-19 01:50:25">
     <span class="icon">
       <i class="ic i-calendar"></i>
     </span>
     <span class="text">发表于</span>
-    <time itemprop="dateCreated datePublished" datetime="2022-03-18T15:37:44+08:00">2022-03-18</time>
+    <time itemprop="dateCreated datePublished" datetime="2022-03-19T01:50:25+08:00">2022-03-19</time>
   </span>
 </div>
 
@@ -100,12 +100,12 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclh3brzpj20zk0m8ann.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclip4jbpj20zk0m87cv.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclgi503lj20zk0m8hdt.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipevo9j1jj20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeun65urj20zk0m81ii.jpg"></li>
-          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeybxm1pj20zk0m8niv.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciukx8a7j20zk0m8aio.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipeudstjqj20zk0m8k3r.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipetlbztpj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -134,7 +134,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 </div>
 
     <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
-  <link itemprop="mainEntityOfPage" href="https://ayanamisaki.github.io/2022/03/18/NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B01-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/">
+  <link itemprop="mainEntityOfPage" href="https://ayanamisaki.github.io/2022/03/19/[NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0]NeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/">
 
   <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
     <meta itemprop="image" content="/images/avatar.jpg">
@@ -224,7 +224,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 </ol>
 <h1 id="重点问题讨论"><a class="markdownIt-Anchor" href="#重点问题讨论">#</a> 重点问题讨论</h1>
 <h2 id="用神经辐射场来表示场景"><a class="markdownIt-Anchor" href="#用神经辐射场来表示场景">#</a> 用神经辐射场来表示场景</h2>
-<p><img data-src="/images/%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB/image-20220318153013619.png" alt="image-20220318153013619"></p>
+<p><img data-src="%5Cimages%5C%E8%AE%BA%E6%96%87%E9%98%85%E8%AF%BB%5Cimage-20220318153013619.png" alt="image-20220318153013619"></p>
 <p>NeRF 函数是将一个连续的场景表示为一个输入为 5D 向量的函数，包括一个空间点的 3D 坐标位置 <img data-src="https://www.zhihu.com/equation?tex=%5Cbm%7Bx%7D+%3D+%28x%2Cy%2Cz%29" alt="[公式]"> ，以及视角方向 <img data-src="https://www.zhihu.com/equation?tex=%5Cbm%7Bd%7D+%3D+%28%5Ctheta%2C+%5Cphi%29" alt="[公式]"> 。这个神经网络可以写作：</p>
 <p><img data-src="https://www.zhihu.com/equation?tex=F_%7B%5CTheta+%7D%3A%28%5Cbm%7Bx%7D%2C+%5Cbm%7Bd%7D%29+%5Crightarrow%28%5Cbm%7Bc%7D%2C+%5Csigma%29" alt="[公式]"></p>
 <p>输出结果中， <img data-src="https://www.zhihu.com/equation?tex=%5Csigma" alt="[公式]"> 是对应 3D 位置（或者说是体素）的密度，而 <img data-src="https://www.zhihu.com/equation?tex=%5Cbm%7Bc%7D+%3D+%28r%2Cg%2Cb%29" alt="[公式]"> 是视角相关的该 3D 点颜色。在具体的实现中， <img data-src="https://www.zhihu.com/equation?tex=%5Cbm%7Bx%7D" alt="[公式]"> 首先输入到 MLP 网络中，并输出 <img data-src="https://www.zhihu.com/equation?tex=%5Csigma" alt="[公式]"> 和中间特征，中间特征和 <img data-src="https://www.zhihu.com/equation?tex=%5Cbm%7Bd%7D" alt="[公式]"> 再输入到额外的全连接层中并预测颜色。因此，体素密度只和空间位置有关，而颜色则与空间位置以及观察的视角都有关系。基于 view dependent 的颜色预测，能够得到不同视角下不同的光照效果，非常惊艳。可以看出，NeRF 函数的表示非常简单。</p>
@@ -257,13 +257,6 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
    <footer>
 
     <div class="meta">
-  <span class="item">
-    <span class="icon">
-      <i class="ic i-calendar-check"></i>
-    </span>
-    <span class="text">更新于</span>
-    <time title="修改时间：2022-03-18 15:37:39" itemprop="dateModified" datetime="2022-03-18T15:37:39+08:00">2022-03-18</time>
-  </span>
 </div>
 
       
@@ -293,7 +286,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
   </li>
   <li class="link">
     <strong>本文链接：</strong>
-    <a href="https://ayanamisaki.github.io/2022/03/18/NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B01-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/" title="NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis">https://ayanamisaki.github.io/2022/03/18/NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/</a>
+    <a href="https://ayanamisaki.github.io/2022/03/19/[NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0]NeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/" title="NeRF论文笔记1-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis">https://ayanamisaki.github.io/2022/03/19/[NeRF论文笔记]NeRF Representing Scenes as Neural Radiance Fields for View Synthesis/</a>
   </li>
   <li class="license">
     <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
@@ -312,20 +305,20 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
     <div class="item left">
       
 
-  <a href="/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giciub8ja1j20zk0m81ky.jpg" title="Markdown使用简易教程">
+  <a href="/2022/03/18/NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B01-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4wqtg4j20zk0m8x6p.jpg" title="NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>Markdown使用简易教程</h3>
+  <h3>NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis</h3>
   </a>
 
     </div>
     <div class="item right">
       
 
-  <a href="/2022/03/19/%5BNeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%5DNeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicljitigmj20zk0m87fp.jpg" title="NeRF论文笔记1-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis">
+  <a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B02%EF%BC%9A%E4%B8%8B%E9%9B%AA%E4%BA%86/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeybxm1pj20zk0m8niv.jpg" title="小月饼日记2：下雪了">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
-  <h3>NeRF论文笔记1-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis</h3>
+  <h3>小月饼日记2：下雪了</h3>
   </a>
 
     </div>
@@ -420,12 +413,12 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 
   <ul id="quick">
     <li class="prev pjax">
-        <a href="/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
+        <a href="/2022/03/18/NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B01-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/" rel="prev" title="上一篇"><i class="ic i-chevron-left"></i></a>
     </li>
     <li class="up"><i class="ic i-arrow-up"></i></li>
     <li class="down"><i class="ic i-arrow-down"></i></li>
     <li class="next pjax">
-        <a href="/2022/03/19/%5BNeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0%5DNeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
+        <a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B02%EF%BC%9A%E4%B8%8B%E9%9B%AA%E4%BA%86/" rel="next" title="下一篇"><i class="ic i-chevron-right"></i></a>
     </li>
     <li class="percent"></li>
   </ul>
@@ -458,7 +451,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B02%EF%BC%9A%E4%B8%8B%E9%9B%AA%E4%BA%86/" title="小月饼日记2：下雪了">小月饼日记2：下雪了</a></span>
+    <span><a href="/2022/03/18/NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B01-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/" title="NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis">NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis</a></span>
   </li>
 
       
@@ -476,16 +469,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%EF%BC%9A%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" title="小月饼日记3：小猫每天要睡满20小时">小月饼日记3：小猫每天要睡满20小时</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/18/NeRF%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B01-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/" title="NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis">NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis</a></span>
+    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B02%EF%BC%9A%E4%B8%8B%E9%9B%AA%E4%BA%86/" title="小月饼日记2：下雪了">小月饼日记2：下雪了</a></span>
   </li>
 
       
@@ -504,6 +488,15 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 </div>
 
     <span><a href="/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/" title="Markdown使用简易教程">Markdown使用简易教程</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%EF%BC%9A%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" title="小月饼日记3：小猫每天要睡满20小时">小月饼日记3：小猫每天要睡满20小时</a></span>
   </li>
 
   </ul>
@@ -534,7 +527,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
   </div>
 <script data-config type="text/javascript">
   var LOCAL = {
-    path: '2022/03/18/NeRF论文笔记1-NeRFRepresentingScenesasNeuralRadianceFieldsforViewSynthesis/',
+    path: '2022/03/19/[NeRF论文笔记]NeRF Representing Scenes as Neural Radiance Fields for View Synthesis/',
     favicon: {
       show: "（●´3｀●）やれやれだぜ",
       hide: "(´Д｀)大変だ！"
