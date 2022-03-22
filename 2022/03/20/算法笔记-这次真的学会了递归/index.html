@@ -100,12 +100,12 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicit4jrvuj20zk0m8785.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexw3o58j20zk0m8e81.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicljgocqbj20zk0m8e81.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicm0fdw5cj20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gipew8gmvyj20zk0m87wh.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giclflwv2aj20zk0m84qp.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1giciuja1j1j20zk0m8kjl.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicit31ffoj20zk0m8naf.jpg"></li>
+          <li class="item" data-background-image="https://tva4.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
         </ul>
       </div>
     </header>
@@ -227,7 +227,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <p>拿 N 皇后来举例，当前位置合法（记作 current）之后，就会寻找下一行（row+1）的合法位置，假如没找到合法位置怎么办呢？这说明 current 不是合适的皇后位置，那就回退到 current，并且把此处的 ‘ Q ’ 修改为 ‘ . ’ 。这就是回溯在干的事情欧～</p>
 <p>（还有一种情况就是当前搜索路径是完完全全的合法路径，是要存到 result 里最后返回为答案的正确路径，那么在搜索出一条合法路径之后，也是需要一步步回溯到初始状态，进行下一条合法路径的搜索欧。</p>
 </blockquote>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//chessboard的类型是一维string类型的数组：vector&lt;string&gt;,存放单个棋盘合法的摆放情况</span></span><br><span class="line"><span class="comment">//result的类型是二维数组：vector&lt;vector&lt;string&gt;&gt;，存放所有的chessboard</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; result; <span class="comment">//存放结果</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> row, vector&lt;string&gt;&amp; chessboard)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(row == n)&#123; <span class="comment">//终止条件：搜索到了最后一行</span></span><br><span class="line">            result.<span class="built_in">emplace_back</span>(chessboard);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> col = <span class="number">0</span>; col &lt; n ; col ++)&#123;<span class="comment">//按列搜索，需要注意上界：col &lt; n 不能取等！（一开始就是这里WA了</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isValid</span>(row,col,chessboard,n))&#123;</span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;Q&#x27;</span>;  <span class="comment">//标记为皇后位置（临时的，能不能永存还要看后面的搜索情况）</span></span><br><span class="line">                <span class="built_in">backtracking</span>(n, row+<span class="number">1</span>, chessboard);  <span class="comment">//递归</span></span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;.&#x27;</span>;  <span class="comment">//回溯</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//检查当前位置是否合法</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(<span class="type">int</span> row , <span class="type">int</span> col , vector&lt;string&gt;&amp; chessboard , <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 检查同列，下方↓</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; row ; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][col] == <span class="string">&#x27;Q&#x27;</span>)   <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查斜线，左上↖</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = row<span class="number">-1</span> , j = col<span class="number">-1</span> ; i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span> ; i-- , j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查斜线，右上↗</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = row <span class="number">-1</span> , j = col+<span class="number">1</span> ; i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n ; i-- , j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        result.<span class="built_in">clear</span>();  <span class="comment">//这句话最好加上</span></span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">chessboard</span><span class="params">(n, string(n, <span class="string">&#x27;.&#x27;</span>))</span></span>;  <span class="comment">//初始化单个棋盘</span></span><br><span class="line">        <span class="built_in">backtracking</span>(n, <span class="number">0</span>, chessboard);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//chessboard的类型是一维string类型的数组：vector&lt;string&gt;,存放单个棋盘合法的摆放情况</span></span><br><span class="line"><span class="comment">//result的类型是二维数组：vector&lt;vector&lt;string&gt;&gt;，存放所有的chessboard</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; result; <span class="comment">//存放结果</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> row, vector&lt;string&gt;&amp; chessboard)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(row == n)&#123; <span class="comment">//终止条件：搜索到了最后一行</span></span><br><span class="line">            result.<span class="built_in">emplace_back</span>(chessboard);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> col = <span class="number">0</span>; col &lt; n ; col ++)&#123;<span class="comment">//按列搜索，需要注意上界：col &lt; n 不能取等！（一开始就是这里WA了</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isValid</span>(row,col,chessboard,n))&#123;</span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;Q&#x27;</span>;  <span class="comment">//标记为皇后位置（临时的，能不能永存还要看后面的搜索情况）</span></span><br><span class="line">                <span class="built_in">backtracking</span>(n, row+<span class="number">1</span>, chessboard);  <span class="comment">//递归</span></span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;.&#x27;</span>;  <span class="comment">//回溯</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//检查当前位置是否合法</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(<span class="type">int</span> row , <span class="type">int</span> col , vector&lt;string&gt;&amp; chessboard , <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 检查同列，上方↑</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; row ; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][col] == <span class="string">&#x27;Q&#x27;</span>)   <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查斜线，左上↖</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = row<span class="number">-1</span> , j = col<span class="number">-1</span> ; i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span> ; i-- , j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查斜线，右上↗</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = row <span class="number">-1</span> , j = col+<span class="number">1</span> ; i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n ; i-- , j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        result.<span class="built_in">clear</span>();  <span class="comment">//这句话最好加上</span></span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">chessboard</span><span class="params">(n, string(n, <span class="string">&#x27;.&#x27;</span>))</span></span>;  <span class="comment">//初始化单个棋盘</span></span><br><span class="line">        <span class="built_in">backtracking</span>(n, <span class="number">0</span>, chessboard);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
 <p><code>现在做N皇后这道题，还是蛮有感慨的！因为本科的时候初次进入ACM教室，还记得是一个周六的下午，那天下午在教室里看了一下午这道题，当时很菜（现在依然很菜），看题解都看了半天才好像看懂了一点点，但是仍然记得的是当时那种【恍然大悟】、【哇题解好聪明】、【这道题好有意思】的感觉。</code></p>
 <blockquote>
 <p>如今我只想说 <s>一切都是最好的安排那就继续烂吧等待命运的安排</s> 继续加油吧！</p>
@@ -245,7 +245,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
       <i class="ic i-calendar-check"></i>
     </span>
     <span class="text">更新于</span>
-    <time title="修改时间：2022-03-21 18:16:47" itemprop="dateModified" datetime="2022-03-21T18:16:47+08:00">2022-03-21</time>
+    <time title="修改时间：2022-03-22 17:30:44" itemprop="dateModified" datetime="2022-03-22T17:30:44+08:00">2022-03-22</time>
   </span>
 </div>
 
@@ -295,7 +295,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
     <div class="item left">
       
 
-  <a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclj61ylzj20zk0m8b29.jpg" title="小月饼日记3:小猫每天要睡满20小时">
+  <a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeuv80yoj20zk0m8kjl.jpg" title="小月饼日记3:小猫每天要睡满20小时">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>小月饼日记3:小猫每天要睡满20小时</h3>
@@ -305,7 +305,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
     <div class="item right">
       
 
-  <a href="/2022/03/20/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B04%E6%82%A0%E9%97%B2%E7%9A%84%E4%B8%80%E5%A4%A9/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitcxhpij20zk0m8hdt.jpg" title="小月饼日记4:悠闲的一天">
+  <a href="/2022/03/20/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B04%E6%82%A0%E9%97%B2%E7%9A%84%E4%B8%80%E5%A4%A9/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva4.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicit4jrvuj20zk0m8785.jpg" title="小月饼日记4:悠闲的一天">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>小月饼日记4:悠闲的一天</h3>
@@ -342,7 +342,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <nav class="state">
     <div class="item posts">
       <a href="/archives/">
-        <span class="count">10</span>
+        <span class="count">11</span>
         <span class="name">文章</span>
       </a>
     </div>
@@ -432,24 +432,6 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/21/ayanamisaki%E4%B8%80%E5%91%A8%E9%A3%9F%E8%B0%B1/" title="ayanamisaki一周食谱">ayanamisaki一周食谱</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" title="小月饼日记3:小猫每天要睡满20小时">小月饼日记3:小猫每天要睡满20小时</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
     <span><a href="/2022/03/20/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B04%E6%82%A0%E9%97%B2%E7%9A%84%E4%B8%80%E5%A4%A9/" title="小月饼日记4:悠闲的一天">小月饼日记4:悠闲的一天</a></span>
   </li>
 
@@ -468,7 +450,25 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/18/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B01%E4%BB%86%E4%BA%BA%E9%83%BD%E6%98%AF%E7%AC%A8%E8%9B%8B/" title="小月饼日记1:仆人都是笨蛋">小月饼日记1:仆人都是笨蛋</a></span>
+    <span><a href="/2022/03/21/%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%97%A0%E8%81%8A%E7%9A%84%E4%BA%BA%E3%80%82/" title="中二病历本1:我希望我是一个无聊的人。">中二病历本1:我希望我是一个无聊的人。</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" title="小月饼日记3:小猫每天要睡满20小时">小月饼日记3:小猫每天要睡满20小时</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/17/hello-world/" title="初めまして！">初めまして！</a></span>
   </li>
 
       
@@ -495,7 +495,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/21/%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%97%A0%E8%81%8A%E7%9A%84%E4%BA%BA%E3%80%82/" title="中二病历本1:我希望我是一个无聊的人。">中二病历本1:我希望我是一个无聊的人。</a></span>
+    <span><a href="/2022/03/18/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B01%E4%BB%86%E4%BA%BA%E9%83%BD%E6%98%AF%E7%AC%A8%E8%9B%8B/" title="小月饼日记1:仆人都是笨蛋">小月饼日记1:仆人都是笨蛋</a></span>
   </li>
 
       
@@ -504,7 +504,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/17/hello-world/" title="初めまして！">初めまして！</a></span>
+    <span><a href="/2022/03/21/ayanamisaki%E4%B8%80%E5%91%A8%E9%A3%9F%E8%B0%B1/" title="ayanamisaki一周食谱">ayanamisaki一周食谱</a></span>
   </li>
 
       
