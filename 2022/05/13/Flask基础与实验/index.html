@@ -1,0 +1,659 @@
+
+
+
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#FFF">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+
+<link rel="icon" type="image/ico" sizes="32x32" href="/images/favicon.ico">
+  <meta http-equiv="Cache-Control" content="no-transform">
+  <meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+<link rel="alternate" type="application/rss+xml" title="૮₍ ˃ ⤙ ˂ ₎ა " href="https://ayanamisaki.github.io/rss.xml" />
+<link rel="alternate" type="application/atom+xml" title="૮₍ ˃ ⤙ ˂ ₎ა " href="https://ayanamisaki.github.io/atom.xml" />
+<link rel="alternate" type="application/json" title="૮₍ ˃ ⤙ ˂ ₎ა " href="https://ayanamisaki.github.io/feed.json" />
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Mulish:300,300italic,400,400italic,700,700italic%7CFredericka%20the%20Great:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20JP:300,300italic,400,400italic,700,700italic%7CNoto%20Serif%20SC:300,300italic,400,400italic,700,700italic%7CInconsolata:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="/css/app.css?v=0.2.5">
+
+  
+
+<link rel="canonical" href="https://ayanamisaki.github.io/2022/05/13/Flask%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E9%AA%8C/">
+
+
+
+  <title>
+后端笔记：Flask基础与实验 |
+ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
+<meta name="generator" content="Hexo 5.4.1"></head>
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div id="loading">
+    <div class="cat">
+      <div class="body"></div>
+      <div class="head">
+        <div class="face"></div>
+      </div>
+      <div class="foot">
+        <div class="tummy-end"></div>
+        <div class="bottom"></div>
+        <div class="legs left"></div>
+        <div class="legs right"></div>
+      </div>
+      <div class="paw">
+        <div class="hands left"></div>
+        <div class="hands right"></div>
+      </div>
+    </div>
+  </div>
+  <div id="container">
+    <header id="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="inner">
+        <div id="brand">
+          <div class="pjax">
+          
+  <h1 itemprop="name headline">后端笔记：Flask基础与实验
+  </h1>
+  
+<div class="meta">
+  <span class="item" title="创建时间：2022-05-13 12:15:09">
+    <span class="icon">
+      <i class="ic i-calendar"></i>
+    </span>
+    <span class="text">发表于</span>
+    <time itemprop="dateCreated datePublished" datetime="2022-05-13T12:15:09+08:00">2022-05-13</time>
+  </span>
+</div>
+
+
+          </div>
+        </div>
+        <nav id="nav">
+  <div class="inner">
+    <div class="toggle">
+      <div class="lines" aria-label="切换导航栏">
+        <span class="line"></span>
+        <span class="line"></span>
+        <span class="line"></span>
+      </div>
+    </div>
+    <ul class="menu">
+      <li class="item title"><a href="/" rel="start">ayanamisaki</a></li>
+    </ul>
+    <ul class="right">
+      <li class="item theme">
+        <i class="ic i-sun"></i>
+      </li>
+      <li class="item search">
+        <i class="ic i-search"></i>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+      </div>
+      <div id="imgs" class="pjax">
+        <ul>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhfehz7j20zk0m8u0x.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gipev1x5e4j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1gicliwyw55j20zk0m8hdt.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giciuv0socj20zk0m8qes.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclhpw3lwj20zk0m8gvw.jpg"></li>
+          <li class="item" data-background-image="https://tva2.sinaimg.cn/large/6833939bly1giclfdu6exj20zk0m87hw.jpg"></li>
+        </ul>
+      </div>
+    </header>
+    <div id="waves">
+      <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+        <defs>
+          <path id="gentle-wave" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z" />
+        </defs>
+        <g class="parallax">
+          <use xlink:href="#gentle-wave" x="48" y="0" />
+          <use xlink:href="#gentle-wave" x="48" y="3" />
+          <use xlink:href="#gentle-wave" x="48" y="5" />
+          <use xlink:href="#gentle-wave" x="48" y="7" />
+        </g>
+      </svg>
+    </div>
+    <main>
+      <div class="inner">
+        <div id="main" class="pjax">
+          
+  <div class="article wrap">
+    
+<div class="breadcrumb" itemscope itemtype="https://schema.org/BreadcrumbList">
+<i class="ic i-home"></i>
+<span><a href="/">首页</a></span>
+</div>
+
+    <article itemscope itemtype="http://schema.org/Article" class="post block" lang="zh-CN">
+  <link itemprop="mainEntityOfPage" href="https://ayanamisaki.github.io/2022/05/13/Flask%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E9%AA%8C/">
+
+  <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <meta itemprop="image" content="/images/avatar.jpg">
+    <meta itemprop="name" content="ayanamisaki">
+    <meta itemprop="description" content=", ">
+  </span>
+
+  <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+    <meta itemprop="name" content="૮₍ ˃ ⤙ ˂ ₎ა ">
+  </span>
+
+  <div class="body md" itemprop="articleBody">
+    
+
+    <h1 id="一-flask简介"><a class="markdownIt-Anchor" href="#一-flask简介">#</a> 一、Flask 简介</h1>
+<h2 id="1-web应用框架"><a class="markdownIt-Anchor" href="#1-web应用框架">#</a> 1. Web 应用框架</h2>
+<ul>
+<li>一款非常流行的 <strong>轻量级</strong> Python Web 应用框架</li>
+<li>Web 应用框架：用于进行 Web 开发的一套软件架构，提供了一套开发和部署网站的方式
+<ul>
+<li>页面：以<strong> HTML</strong> 的形式<strong>发送</strong>到浏览器中</li>
+<li>发送 HTML 到浏览器的应用：Web 应用</li>
+<li>Web 框架的目的：向程序员<strong>隐藏</strong>了处理 HTTP 请求和响应相关的<strong>基础代码</strong>
+<ul>
+<li><strong>e.g. 点外卖，消费者只需要关注 “我想吃什么” 这样的高层逻辑，而无需关注下单后骑手如何分配、商家如何接单、菜品如何制作、骑手如何配送等等基础问题</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hhemlyL2FydGljbGUvZGV0YWlscy8yMDYxOTc4Nz9zcG09MTAwMS4yMTAxLjMwMDEuNjY1MC4xJmFtcDt1dG1fbWVkaXVtPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctMiU3RWRlZmF1bHQlN0VDVFJMSVNUJTdFZGVmYXVsdC0xLTIwNjE5Nzg3LWJsb2ctMTAwNTg1NzA5LnBjX3JlbGV2YW50X2RlZmF1bHQmYW1wO2RlcHRoXzEtdXRtX3NvdXJjZT1kaXN0cmlidXRlLnBjX3JlbGV2YW50Lm5vbmUtdGFzay1ibG9nLTIlN0VkZWZhdWx0JTdFQ1RSTElTVCU3RWRlZmF1bHQtMS0yMDYxOTc4Ny1ibG9nLTEwMDU4NTcwOS5wY19yZWxldmFudF9kZWZhdWx0JmFtcDt1dG1fcmVsZXZhbnRfaW5kZXg9Mg==">课后阅读 1：什么是 Web 框架？</span></li>
+</ul>
+<h2 id="2-路由与模板"><a class="markdownIt-Anchor" href="#2-路由与模板">#</a> 2. 路由与模板</h2>
+<h3 id="1路由route业务逻辑"><a class="markdownIt-Anchor" href="#1路由route业务逻辑">#</a> ①路由 route：业务逻辑</h3>
+<ul>
+<li>如何将请求的 URL 映射到处理它的代码上？
+<ul>
+<li>即：怎样将<strong>网址与逻辑处理函数</strong>相关联起来？</li>
+<li>答：Flask 将一个函数和请求的 URL 关联起来的标准方法是<strong>通过使用 route () 装饰器</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/users/&lt;id:int&gt;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">display_user</span>(<span class="params"><span class="built_in">id</span></span>):</span><br><span class="line">    <span class="comment"># ...</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>举例
+<ul>
+<li>影片信息 JSON：<span class="exturl" data-url="aHR0cHM6Ly9hcGkubW92aWUueWluZ3NoaW5ldC5jb20vbW92aWVz">https://api.movie.yingshinet.com/movies</span></li>
+<li>年谱信息 JSON：<span class="exturl" data-url="aHR0cHM6Ly9hcGkubW92aWUueWluZ3NoaW5ldC5jb20vY2hyb25pY2xlcw==">https://api.movie.yingshinet.com/chronicles</span></li>
+</ul>
+</li>
+</ul>
+<h3 id="2模板templates页面逻辑"><a class="markdownIt-Anchor" href="#2模板templates页面逻辑">#</a> ②模板 templates：页面逻辑</h3>
+<ul>
+<li>怎样动态地生成 HTML？
+<ul>
+<li>即：<strong>怎样</strong>动态地构造请求的 HTML 返回给客户端</li>
+<li>（HTML 中带有计算得到的值或者从数据库中取出来的信息）</li>
+<li><strong>怎样</strong>：指的是网页表层的显示，而不是指底层具体是怎样实现的（底层机制）</li>
+<li>模板：简单来说就是一个其中包含<strong>占位变量</strong>表示动态的部分的文件，模板文件在经过动态赋值后，返回给用户
+<ul>
+<li>可以理解为渲染</li>
+<li>模板：书架，第一层放语文书，第二层放数学书，第三层放计算机课本</li>
+<li>我们要做的是把对应的书放在对应的层</li>
+<li>templates 模板 be like：</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><strong>语文书 1</strong></th>
+<th><strong>语文书 2</strong></th>
+<th><strong>语文书 3</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>数学书 1</strong></td>
+<td><strong>数学书 2</strong></td>
+<td><strong>数学书 3</strong></td>
+</tr>
+<tr>
+<td><strong>计算机课本 1</strong></td>
+<td><strong>计算机课本 2</strong></td>
+<td><strong>计算机课本 3</strong></td>
+</tr>
+</tbody>
+</table>
+<pre><code>  - 渲染后be like：
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>《论语》</th>
+<th>《大学》</th>
+<th>《中庸》</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>《高等数学》</td>
+<td>《线性代数》</td>
+<td>《离散数学》</td>
+</tr>
+<tr>
+<td>《D3 数据可视化》</td>
+<td>《大数据导论》</td>
+<td>《数据结构》</td>
+</tr>
+</tbody>
+</table>
+<p><span class="exturl" data-url="aHR0cDovL2RvY3Muamlua2FuLm9yZy9kb2NzL2ZsYXNrL3F1aWNrc3RhcnQuaHRtbA==">课后阅读 2：快速入门 ——Flask 文档</span></p>
+<h3 id="3jinjia2语句"><a class="markdownIt-Anchor" href="#3jinjia2语句">#</a> ③jinjia2 语句</h3>
+<ul>
+<li>语法块：</li>
+<li><img data-src="E:%5CmyProjects%5Cayanamisaki.github.io%5Cblog%5Cthemes%5Cshoka%5Csource%5Cimages%5CFlask%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E9%AA%8C%5Cimage-20220513121553829.png" alt="image-20220513121553829"></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">&#123;# jinjia2模板不能单独使用，只能跟脚本配合使用。 #&#125;</span><br><span class="line"></span><br><span class="line">&#123;% if ansible_distribution == &quot;CentOS&quot; %&#125;</span><br><span class="line">WelCome to &#123;&#123; ansible_distribution &#125;&#125; - &#123;&#123; ansible_distribution_version &#125;&#125; 空闲内存大小 &#123;&#123; ansible_memfree_mb * 1000 &#125;&#125;</span><br><span class="line">&#123;% else %&#125;</span><br><span class="line">Welcome to China</span><br><span class="line">&#123;% endif %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% for i in ansible_date_time %&#125;</span><br><span class="line">&#123;&#123; i &#125;&#125;</span><br><span class="line">&#123;% endfor %&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<p><span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODQzMjI4L2FydGljbGUvZGV0YWlscy8xMDQ4OTA3OTU=">课后阅读 3：jinjia2 - 块 block</span><br>
+<strong>④jinjia2 模板继承</strong> *</p>
+<ul>
+<li><strong>父类 base.html</strong></li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    &#123;% block head %&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span> &#123;% block title %&#125; &#123;% endblock title %&#125; <span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    &#123;% block static_file %&#125; &#123;% endblock static_file %&#125;</span><br><span class="line">    &#123;% block CSS_change %&#125; &#123;% endblock CSS_change %&#125;</span><br><span class="line">    &#123;% block js %&#125; &#123;% endblock js %&#125;</span><br><span class="line">    &#123;% endblock head %&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span> &#123;% block header %&#125;  &#123;% endblock header %&#125; <span class="tag">&lt;/<span class="name">header</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span> &#123;% block content %&#125; &#123;% endblock content %&#125; <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">footer</span>&gt;</span> &#123;% block footer %&#125;</span><br><span class="line"><span class="tag">&lt;<span class="name">h3</span>&gt;</span> <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;https://blog.csdn.net/time_money&quot;</span> <span class="attr">target</span>=<span class="string">&quot;_blank&quot;</span>&gt;</span> Python小明 <span class="tag">&lt;/<span class="name">a</span>&gt;</span>  <span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line"> &#123;% endblock footer %&#125; <span class="tag">&lt;/<span class="name">footer</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>子类 index.html</li>
+</ul>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;% extends &#x27;base.html&#x27; %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block title %&#125;index&#123;% endblock title %&#125;</span><br><span class="line"></span><br><span class="line">&#123;% block content %&#125;</span><br><span class="line">    &#123;% autoescape false %&#125;</span><br><span class="line">    &#123;&#123; data1 &#125;&#125;</span><br><span class="line">    &#123;% endautoescape %&#125;</span><br><span class="line">    &#123;&#123; data2 | safe &#125;&#125;</span><br><span class="line">    &#123;&#123; data3 | md |safe &#125;&#125;</span><br><span class="line">&#123;#    &#123;&#123; read_md(&#x27;demo.md&#x27;) | md |safe &#125;&#125;#&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">nav</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; url_for(&#x27;.services&#x27;) &#125;&#125;&quot;</span>&gt;</span>Services<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">&quot;&#123;&#123; url_for(&#x27;.about&#x27;) &#125;&#125;&quot;</span>&gt;</span>About<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">nav</span>&gt;</span></span><br><span class="line">&#123;% endblock content %&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="3项目结构"><a class="markdownIt-Anchor" href="#3项目结构">#</a> 3. 项目结构</h2>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">| - templates       //jinjia2模板</span><br><span class="line">| - static          //css,js 图片等静态文件</span><br><span class="line">| - server.py       //主程序</span><br></pre></td></tr></table></figure>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">// Linux ↓</span><br><span class="line">mkdir HelloWorld</span><br><span class="line">mkdir HelloWorld/static</span><br><span class="line">mkdir HelloWorld/templates</span><br><span class="line">touch HelloWorld/server.py</span><br><span class="line"></span><br><span class="line">// Windows ↓</span><br><span class="line">mkdir HelloWorld</span><br><span class="line">mkdir HelloWorld/static</span><br><span class="line">mkdir HelloWorld/templates</span><br><span class="line">echo HelloWorld/server.py</span><br></pre></td></tr></table></figure>
+<p>P.S. 手动创建也可以<br>
+ ** 延申</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="code">		| - app  //程序包</span></span><br><span class="line"><span class="code">				| - templates //jinjia2模板</span></span><br><span class="line"><span class="code">				|- static //css,js 图片等静态文件</span></span><br><span class="line"><span class="code">				| - main  //py程序包 ，可以有多个这种包，每个对应不同的功能</span></span><br><span class="line"><span class="code">						|	 - __init__.py</span></span><br><span class="line"><span class="code">						|- errors.py</span></span><br><span class="line"><span class="code">						|- forms.py</span></span><br><span class="line"><span class="code">						|- views.py</span></span><br><span class="line"><span class="code">				|- __init__.py</span></span><br><span class="line"><span class="code">				|	- email.py //邮件处理程序</span></span><br><span class="line"><span class="code">				|- models.py //数据库模型</span></span><br><span class="line"><span class="code">		|- migrations //数据迁移文件夹</span></span><br><span class="line"><span class="code">		|- tests  //单元测试</span></span><br><span class="line"><span class="code">				|- __init__.py</span></span><br><span class="line"><span class="code">				|- test*.py //单元测试程序，可以包含多个对应不同的功能点测试</span></span><br><span class="line"><span class="code">		|- venv  //虚拟环境</span></span><br><span class="line"><span class="code">		|- requirements.txt //列出了所有依赖包以及版本号，方便在其他位置生成相同的虚拟环境以及依赖</span></span><br><span class="line"><span class="code">|- config.py //全局配置文件，配置全局变量</span></span><br><span class="line"><span class="code">|- manage.py //启动程序</span></span><br><span class="line"><span class="code"></span></span><br></pre></td></tr></table></figure>
+<h2 id="二-flask基础实验"><a class="markdownIt-Anchor" href="#二-flask基础实验">#</a> 二、Flask 基础实验</h2>
+<h2 id="1-基本原理"><a class="markdownIt-Anchor" href="#1-基本原理">#</a> 1. 基本原理</h2>
+<blockquote>
+<p>第一部分，初始化：所有的 Flask 都必须创建程序实例，<br>
+web 服务器使用 wsgi 协议，把客户端所有的请求都转发给这个程序实例<br>
+程序实例是 Flask 的对象，一般情况下用如下方法实例化<br>
+ Flask 类只有一个必须指定的参数，即程序主模块或者包的名字<br>
+__name__是系统变量，该变量指的是本 py 文件的文件名</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line">app = Flask(__name__)</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>_  第二部分，路由和视图函数：<br>
+ 客户端发送 url 给 web 服务器，web 服务器将 url 转发给 flask 程序实例_<br>
+_  程序实例需要知道对于每一个 url 请求启动那一部分代码，所以保存了一个 url 和 python 函数的映射关系。<br>
+ 处理 url 和函数之间关系的程序，称为路由<br>
+ 在 flask 中，定义路由最简便的方式，是使用程序实例的 app.route 装饰器，把装饰的函数注册为路由_**</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello_world</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span></span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><em>第三部分：程序实例用 run 方法启动 flask 集成的开发 web 服务器<br>
+ <strong>name</strong> == '<strong>main</strong>’是 python 常用的方法，表示只有直接启动本脚本时候，才用 app.run 方法<br>
+ 如果是其他脚本调用本脚本，程序假定父级脚本会启用不同的服务器，因此不用执行 app.run ()<br>
+ 服务器启动后，会启动轮询，等待并处理请求。轮询会一直请求，直到程序停止。</em><br>
+_设置 debug 模式：默认情况下，flask 的 debug 模式是关闭的。当开启了 debug 模式后，当代码出现错误，错误提示会在终端中显示。debug 模式只在开发模式下开启，因为 debug 模式会带来非常大的安全隐患。<br>
+flask 开启 debug 模式 app.run (debug=True)</p>
+</blockquote>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;yes&quot;</span>)  <span class="comment"># 控制台输出</span></span><br><span class="line">    app.run(debug=<span class="literal">True</span>)  <span class="comment"># 调用hello_world()，在浏览器网页输出hello world</span></span><br></pre></td></tr></table></figure>
+<p><strong>实验 1：理解 Flask 工作原理</strong></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)  <span class="comment"># 初始化Flask实例</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span></span>)  </span><span class="comment"># 路由</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello_world</span>():  <span class="comment"># 视图函数</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello world&#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 理解路由</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/user&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello_user</span>():</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello user &#x27;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># 理解传参</span></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/user/&lt;userid&gt;&#x27;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">hello_user_id</span>(<span class="params">userid</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;hello user &#x27;</span> + userid</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&quot;yes&quot;</span>)  <span class="comment"># 控制台输出</span></span><br><span class="line">    app.run(debug=<span class="literal">True</span>)  <span class="comment"># 调用hello_world()，在浏览器网页输出hello world</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<blockquote></blockquote>
+<h2 id="2-使用templates模板"><a class="markdownIt-Anchor" href="#2-使用templates模板">#</a> 2. 使用 templates 模板</h2>
+<p><strong>实验 2：在浏览器中显示 a+b 的计算值</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;UTF-8&quot;</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>实验2<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    &#123;&#123; tag &#125;&#125;</span><br><span class="line">    <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    &#123;&#123; tag(99,1) &#125;&#125;</span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask</span><br><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> render_template</span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"><span class="comment">#定义一个函数,把它传递给前端</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">a_b_sum</span>(<span class="params">a,b</span>):</span><br><span class="line">    <span class="keyword">return</span> a+b</span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&quot;/&quot;</span></span>)</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">index</span>():</span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&quot;index.html&quot;</span>, tag=a_b_sum)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2021/png/12448801/1614144936644-6c7b2e8d-b65d-4f3b-b045-c577d934b466.png" alt="image.png"></p>
+<h2 id="3-综合实践"><a class="markdownIt-Anchor" href="#3-综合实践">#</a> 3. 综合实践</h2>
+<p><strong>实验 3：在浏览器中上传本地图片与文字信息并展示</strong></p>
+<ul>
+<li>
+<form>标签用于创建**供用户输入**的 HTML 表单。
+</li>
+<li>multipart/form-data：既可以<strong>上传文件</strong>等二进制数据，也可以上传表单键值对，只是最后会转化为一条信息；</li>
+</ul>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html&gt;</span><br><span class="line">&lt;head&gt; </span><br><span class="line">&lt;meta charset=<span class="string">&quot;utf-8&quot;</span>&gt; </span><br><span class="line">&lt;title&gt;菜鸟教程(runoob.com)&lt;/title&gt; </span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line"></span><br><span class="line">&lt;form action=<span class="string">&quot;demo-form.php&quot;</span>&gt;</span><br><span class="line">    First name: &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;FirstName&quot;</span> value=<span class="string">&quot;Mickey&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    Last name: &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;text&quot;</span> name=<span class="string">&quot;LastName&quot;</span> value=<span class="string">&quot;Mouse&quot;</span>&gt;&lt;br&gt;</span><br><span class="line">    &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;提交&quot;</span>&gt;</span><br><span class="line">&lt;/form&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2022/png/12448801/1652412823721-1575b6d7-fe59-4090-9ca8-dd7424953f24.png" alt="image.png"></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;实验<span class="number">3</span>&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;实验<span class="number">3</span>：在浏览器中上传本地图片与文字信息并展示&lt;/h1&gt;</span><br><span class="line">    &lt;form enctype = <span class="string">&#x27;multipart/form-data&#x27;</span> method = <span class="string">&#x27;POST&#x27;</span>&gt;</span><br><span class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;file&quot;</span> name = <span class="string">&quot;upload_file&quot;</span>/&gt;</span><br><span class="line">        &lt;br&gt;</span><br><span class="line">        &lt;i&gt;请输入图片主色调：&lt;/i&gt;</span><br><span class="line"></span><br><span class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span> = <span class="string">&quot;text&quot;</span> name = <span class="string">&quot;input_text&quot;</span>/&gt;</span><br><span class="line">        &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;上传&quot;</span>/&gt;</span><br><span class="line">    &lt;/form&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">&lt;!DOCTYPE html&gt;</span><br><span class="line">&lt;html lang=<span class="string">&quot;en&quot;</span>&gt;</span><br><span class="line">&lt;head&gt;</span><br><span class="line">    &lt;meta charset=<span class="string">&quot;UTF-8&quot;</span>&gt;</span><br><span class="line">    &lt;title&gt;Flask上传图片演示&lt;/title&gt;</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;</span><br><span class="line">    &lt;h1&gt;实验<span class="number">3</span>：在浏览器中上传本地图片与文字信息并展示&lt;/h1&gt;</span><br><span class="line">        &lt;form enctype = <span class="string">&#x27;multipart/form-data&#x27;</span> method = <span class="string">&#x27;POST&#x27;</span>&gt;</span><br><span class="line">            &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;file&quot;</span> name = <span class="string">&quot;upload_file&quot;</span>/&gt;</span><br><span class="line">            &lt;br&gt;</span><br><span class="line">            &lt;i&gt;请输入图片主色调：&lt;/i&gt;</span><br><span class="line"></span><br><span class="line">            &lt;<span class="built_in">input</span> <span class="built_in">type</span> = <span class="string">&quot;text&quot;</span> name = <span class="string">&quot;input_text&quot;</span>/&gt;</span><br><span class="line">            &lt;<span class="built_in">input</span> <span class="built_in">type</span>=<span class="string">&quot;submit&quot;</span> value=<span class="string">&quot;上传&quot;</span>/&gt;</span><br><span class="line">        &lt;/form&gt;</span><br><span class="line"></span><br><span class="line">     &lt;h1&gt;图片的主色调是：&#123;&#123;userinput&#125;&#125;!&lt;/h1&gt;</span><br><span class="line">    &lt;img src=<span class="string">&quot;&#123;&#123;url_for(&#x27;static&#x27;,filename=&#x27;./images/test.jpg&#x27;)&#125;&#125;&quot;</span> height=<span class="string">&quot;400&quot;</span> alt=<span class="string">&quot;你的图片被外星人劫持了~~&quot;</span>/&gt;</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> flask <span class="keyword">import</span> Flask, render_template, request</span><br><span class="line"><span class="keyword">from</span> werkzeug.utils <span class="keyword">import</span> secure_filename</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> cv2</span><br><span class="line"></span><br><span class="line">ALLOWED_EXTENSIONS = <span class="built_in">set</span>([<span class="string">&#x27;png&#x27;</span>, <span class="string">&#x27;jpg&#x27;</span>, <span class="string">&#x27;JPG&#x27;</span>, <span class="string">&#x27;PNG&#x27;</span>, <span class="string">&#x27;bmp&#x27;</span>])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">allowed_file</span>(<span class="params">filename</span>):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&#x27;.&#x27;</span> <span class="keyword">in</span> filename <span class="keyword">and</span> filename.rsplit(<span class="string">&#x27;.&#x27;</span>, <span class="number">1</span>)[<span class="number">1</span>] <span class="keyword">in</span> ALLOWED_EXTENSIONS</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">app = Flask(__name__)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="meta">@app.route(<span class="params"><span class="string">&#x27;/&#x27;</span>, methods=[<span class="string">&#x27;POST&#x27;</span>, <span class="string">&#x27;GET&#x27;</span>]</span>)  </span><span class="comment"># 添加路由</span></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">upload</span>():</span><br><span class="line">    <span class="keyword">if</span> request.method == <span class="string">&#x27;POST&#x27;</span>:</span><br><span class="line">        f = request.files[<span class="string">&#x27;upload_file&#x27;</span>]</span><br><span class="line">        user_input = request.form.get(<span class="string">&quot;input_text&quot;</span>)</span><br><span class="line">        basepath = os.path.dirname(__file__)  <span class="comment"># 当前文件所在路径</span></span><br><span class="line">        upload_path = os.path.join(basepath, <span class="string">&#x27;static/images&#x27;</span>, secure_filename(f.filename))  <span class="comment"># 注意：没有的文件夹一定要先创建，不然会提示没有该路径</span></span><br><span class="line">        f.save(upload_path)</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 使用Opencv转换一下图片格式和名称</span></span><br><span class="line">        img = cv2.imread(upload_path)</span><br><span class="line">        cv2.imwrite(os.path.join(basepath, <span class="string">&#x27;static/images&#x27;</span>, <span class="string">&#x27;test.jpg&#x27;</span>), img)</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> render_template(<span class="string">&#x27;upload_ok.html&#x27;</span>, userinput=user_input)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> render_template(<span class="string">&#x27;upload.html&#x27;</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">&#x27;__main__&#x27;</span>:</span><br><span class="line">    app.run(debug=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
+<p><img data-src="https://cdn.nlark.com/yuque/0/2022/png/12448801/1652414401999-8b552d29-722e-4de0-9587-2bb84081df2b.png" alt="image.png"><br>
+<img data-src="https://cdn.nlark.com/yuque/0/2022/png/12448801/1652414417900-8d8a1f72-5c66-44e2-89ec-f63a01d25985.png?x-oss-process=image%2Fresize%2Cw_743%2Climit_0" alt="image.png"><br>
+<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L2hhemlyL2FydGljbGUvZGV0YWlscy8yMDYxOTc4Nz9zcG09MTAwMS4yMTAxLjMwMDEuNjY1MC4xJmFtcDt1dG1fbWVkaXVtPWRpc3RyaWJ1dGUucGNfcmVsZXZhbnQubm9uZS10YXNrLWJsb2ctMiU3RWRlZmF1bHQlN0VDVFJMSVNUJTdFZGVmYXVsdC0xLTIwNjE5Nzg3LWJsb2ctMTAwNTg1NzA5LnBjX3JlbGV2YW50X2RlZmF1bHQmYW1wO2RlcHRoXzEtdXRtX3NvdXJjZT1kaXN0cmlidXRlLnBjX3JlbGV2YW50Lm5vbmUtdGFzay1ibG9nLTIlN0VkZWZhdWx0JTdFQ1RSTElTVCU3RWRlZmF1bHQtMS0yMDYxOTc4Ny1ibG9nLTEwMDU4NTcwOS5wY19yZWxldmFudF9kZWZhdWx0JmFtcDt1dG1fcmVsZXZhbnRfaW5kZXg9Mg=="> 课后阅读 1：什么是 Web 框架？</span><br>
+<span class="exturl" data-url="aHR0cDovL2RvY3Muamlua2FuLm9yZy9kb2NzL2ZsYXNrL3F1aWNrc3RhcnQuaHRtbA==">课后阅读 2：快速入门 ——Flask 文档</span><br>
+<span class="exturl" data-url="aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQxODQzMjI4L2FydGljbGUvZGV0YWlscy8xMDQ4OTA3OTU=">课后阅读 3：jinjia2 - 块 block</span></p>
+
+  </div>
+
+   <footer>
+
+    <div class="meta">
+  <span class="item">
+    <span class="icon">
+      <i class="ic i-calendar-check"></i>
+    </span>
+    <span class="text">更新于</span>
+    <time title="修改时间：2022-05-13 12:19:23" itemprop="dateModified" datetime="2022-05-13T12:19:23+08:00">2022-05-13</time>
+  </span>
+</div>
+
+      
+<div class="reward">
+  <button><i class="ic i-heartbeat"></i> 赞赏</button>
+  <p>请我喝[奶茶]~(￣▽￣)~*</p>
+  <div id="qr">
+      
+      <div>
+        <img data-src="/images/wechat.png" alt="ayanamisaki 微信支付">
+        <p>微信支付</p>
+      </div>
+      
+      <div>
+        <img data-src="/images/alipay.png" alt="ayanamisaki 支付宝">
+        <p>支付宝</p>
+      </div>
+  </div>
+</div>
+
+      
+
+<div id="copyright">
+<ul>
+  <li class="author">
+    <strong>本文作者： </strong>ayanamisaki <i class="ic i-at"><em>@</em></i>૮₍ ˃ ⤙ ˂ ₎ა 
+  </li>
+  <li class="link">
+    <strong>本文链接：</strong>
+    <a href="https://ayanamisaki.github.io/2022/05/13/Flask%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E9%AA%8C/" title="后端笔记：Flask基础与实验">https://ayanamisaki.github.io/2022/05/13/Flask基础与实验/</a>
+  </li>
+  <li class="license">
+    <strong>版权声明： </strong>本站所有文章除特别声明外，均采用 <span class="exturl" data-url="aHR0cHM6Ly9jcmVhdGl2ZWNvbW1vbnMub3JnL2xpY2Vuc2VzL2J5LW5jLXNhLzQuMC9kZWVkLnpo"><i class="ic i-creative-commons"><em>(CC)</em></i>BY-NC-SA</span> 许可协议。转载请注明出处！
+  </li>
+</ul>
+</div>
+
+  </footer>
+
+</article>
+
+  </div>
+  
+
+<div class="post-nav">
+    <div class="item left">
+      
+
+  <a href="/2022/03/26/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B07%E4%B8%8D%E6%9C%8D%E7%AE%A1%E6%95%99%E7%9A%84%E4%B8%8B%E5%9C%BA/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva2.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gicitcxhpij20zk0m8hdt.jpg" title="小月饼日记7 不服管教的下场">
+  <span class="type">上一篇</span>
+  <span class="category"><i class="ic i-flag"></i> </span>
+  <h3>小月饼日记7 不服管教的下场</h3>
+  </a>
+
+    </div>
+    <div class="item right">
+    </div>
+</div>
+
+  
+  <div class="wrap" id="comments"></div>
+
+
+        </div>
+        <div id="sidebar">
+          
+
+<div class="inner">
+
+  <div class="panels">
+    <div class="inner">
+      <div class="contents panel pjax" data-title="文章目录">
+          <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80-flask%E7%AE%80%E4%BB%8B"><span class="toc-number">1.</span> <span class="toc-text"> 一、Flask 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-web%E5%BA%94%E7%94%A8%E6%A1%86%E6%9E%B6"><span class="toc-number">1.1.</span> <span class="toc-text"> 1. Web 应用框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%B7%AF%E7%94%B1%E4%B8%8E%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.2.</span> <span class="toc-text"> 2. 路由与模板</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%E8%B7%AF%E7%94%B1route%E4%B8%9A%E5%8A%A1%E9%80%BB%E8%BE%91"><span class="toc-number">1.2.1.</span> <span class="toc-text"> ①路由 route：业务逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%E6%A8%A1%E6%9D%BFtemplates%E9%A1%B5%E9%9D%A2%E9%80%BB%E8%BE%91"><span class="toc-number">1.2.2.</span> <span class="toc-text"> ②模板 templates：页面逻辑</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3jinjia2%E8%AF%AD%E5%8F%A5"><span class="toc-number">1.2.3.</span> <span class="toc-text"> ③jinjia2 语句</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3%E9%A1%B9%E7%9B%AE%E7%BB%93%E6%9E%84"><span class="toc-number">1.3.</span> <span class="toc-text"> 3. 项目结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C-flask%E5%9F%BA%E7%A1%80%E5%AE%9E%E9%AA%8C"><span class="toc-number">1.4.</span> <span class="toc-text"> 二、Flask 基础实验</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%9F%BA%E6%9C%AC%E5%8E%9F%E7%90%86"><span class="toc-number">1.5.</span> <span class="toc-text"> 1. 基本原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%BF%E7%94%A8templates%E6%A8%A1%E6%9D%BF"><span class="toc-number">1.6.</span> <span class="toc-text"> 2. 使用 templates 模板</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BB%BC%E5%90%88%E5%AE%9E%E8%B7%B5"><span class="toc-number">1.7.</span> <span class="toc-text"> 3. 综合实践</span></a></li></ol></li></ol>
+      </div>
+      <div class="related panel pjax" data-title="系列文章">
+      </div>
+      <div class="overview panel" data-title="站点概览">
+        <div class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <img class="image" itemprop="image" alt="ayanamisaki"
+      data-src="/images/avatar.jpg">
+  <p class="name" itemprop="name">ayanamisaki</p>
+  <div class="description" itemprop="description"></div>
+</div>
+
+<nav class="state">
+    <div class="item posts">
+      <a href="/archives/">
+        <span class="count">14</span>
+        <span class="name">文章</span>
+      </a>
+    </div>
+</nav>
+
+<div class="social">
+</div>
+
+<ul class="menu">
+  
+    
+  <li class="item">
+    <a href="/" rel="section"><i class="ic i-home"></i>首页</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/about/" rel="section"><i class="ic i-user"></i>关于</a>
+  </li>
+
+        
+  <li class="item dropdown">
+      <a href="javascript:void(0);"><i class="ic i-feather"></i>文章</a>
+    <ul class="submenu">
+
+        
+  <li class="item">
+    <a href="/archives/" rel="section"><i class="ic i-list-alt"></i>归档</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/categories/" rel="section"><i class="ic i-th"></i>分类</a>
+  </li>
+
+        
+  <li class="item">
+    <a href="/tags/" rel="section"><i class="ic i-tags"></i>标签</a>
+  </li>
+
+  </ul>
+    
+  <li class="item">
+    <a href="/friends/" rel="section"><i class="ic i-heart"></i>朋友圈</a>
+  </li>
+
+    
+  <li class="item">
+    <a href="/links/" rel="section"><i class="ic i-magic"></i>links</a>
+  </li>
+
+
+</ul>
+
+      </div>
+    </div>
+  </div>
+
+  <ul id="quick">
+    <li class="prev pjax">
+    </li>
+    <li class="up"><i class="ic i-arrow-up"></i></li>
+    <li class="down"><i class="ic i-arrow-down"></i></li>
+    <li class="next pjax">
+    </li>
+    <li class="percent"></li>
+  </ul>
+</div>
+
+
+        </div>
+        <div class="dimmer"></div>
+      </div>
+    </main>
+    <footer id="footer">
+      <div class="inner">
+        <div class="widgets">
+          
+<div class="rpost pjax">
+  <h2>随机文章</h2>
+  <ul>
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/05/13/Flask%E5%9F%BA%E7%A1%80%E4%B8%8E%E5%AE%9E%E9%AA%8C/" title="后端笔记：Flask基础与实验">后端笔记：Flask基础与实验</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/26/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B07%E4%B8%8D%E6%9C%8D%E7%AE%A1%E6%95%99%E7%9A%84%E4%B8%8B%E5%9C%BA/" title="小月饼日记7 不服管教的下场">小月饼日记7 不服管教的下场</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/22/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B05%E4%BB%86%E4%BA%BA%E5%BF%85%E9%A1%BB%E5%9C%A8%E6%88%91%E7%9A%84%E8%A7%86%E7%BA%BF%E4%B8%AD/" title="小月饼日记5:仆人必须在我的视线中">小月饼日记5:仆人必须在我的视线中</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B02%E4%B8%8B%E9%9B%AA%E4%BA%86/" title="小月饼日记2:下雪了">小月饼日记2:下雪了</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-NeRF-NeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/" title="论文笔记-NeRF-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis">论文笔记-NeRF-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" title="小月饼日记3:小猫每天要睡满20小时">小月饼日记3:小猫每天要睡满20小时</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/18/Markdown%E4%BD%BF%E7%94%A8%E7%AE%80%E6%98%93%E6%95%99%E7%A8%8B/" title="Markdown使用简易教程">Markdown使用简易教程</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/18/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B01%E4%BB%86%E4%BA%BA%E9%83%BD%E6%98%AF%E7%AC%A8%E8%9B%8B/" title="小月饼日记1:仆人都是笨蛋">小月饼日记1:仆人都是笨蛋</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/17/hello-world/" title="初めまして！">初めまして！</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/25/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B06%E6%88%91%E7%96%AF%E5%95%A6/" title="小月饼日记6:我疯啦">小月饼日记6:我疯啦</a></span>
+  </li>
+
+  </ul>
+</div>
+<div>
+  <h2>最新评论</h2>
+  <ul class="leancloud-recent-comment"></ul>
+</div>
+
+        </div>
+        <div class="status">
+  <div class="copyright">
+    
+    &copy; 2010 – 
+    <span itemprop="copyrightYear">2022</span>
+    <span class="with-love">
+      <i class="ic i-sakura rotate"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">ayanamisaki @ ayanamisaki</span>
+  </div>
+  <div class="powered-by">
+    基于 <span class="exturl" data-url="aHR0cHM6Ly9oZXhvLmlv">Hexo</span> & Theme.<span class="exturl" data-url="aHR0cHM6Ly9naXRodWIuY29tL2FtZWhpbWUvaGV4by10aGVtZS1zaG9rYQ==">Shoka</span>
+  </div>
+</div>
+
+      </div>
+    </footer>
+  </div>
+<script data-config type="text/javascript">
+  var LOCAL = {
+    path: '2022/05/13/Flask基础与实验/',
+    favicon: {
+      show: "（●´3｀●）やれやれだぜ",
+      hide: "(´Д｀)大変だ！"
+    },
+    search : {
+      placeholder: "文章搜索",
+      empty: "关于 「 ${query} 」，什么也没搜到",
+      stats: "${time} ms 内找到 ${hits} 条结果"
+    },
+    valine: true,fancybox: true,
+    copyright: '复制成功，转载请遵守 <i class="ic i-creative-commons"></i>BY-NC-SA 协议。',
+    ignores : [
+      function(uri) {
+        return uri.includes('#');
+      },
+      function(uri) {
+        return new RegExp(LOCAL.path+"$").test(uri);
+      }
+    ]
+  };
+</script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.js"></script>
+
+<script src="//cdn.jsdelivr.net/combine/npm/pace-js@1.0.2/pace.min.js,npm/pjax@0.2.8/pjax.min.js,npm/whatwg-fetch@3.4.0/dist/fetch.umd.min.js,npm/animejs@3.2.0/lib/anime.min.js,npm/algoliasearch@4/dist/algoliasearch-lite.umd.js,npm/instantsearch.js@4/dist/instantsearch.production.min.js,npm/lozad@1/dist/lozad.min.js,npm/quicklink@2/dist/quicklink.umd.js"></script>
+
+<script src="/js/app.js?v=0.2.5"></script>
+
+
+
+
+</body>
+</html>
