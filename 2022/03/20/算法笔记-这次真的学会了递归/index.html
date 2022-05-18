@@ -100,12 +100,12 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
       </div>
       <div id="imgs" class="pjax">
         <ul>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexbei4hj20zk0m8npd.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipetv6p75j20zk0m8x6p.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gicitzannuj20zk0m8b29.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipeubcbajj20zk0m8h1h.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipexoj0moj20zk0m8kgu.jpg"></li>
-          <li class="item" data-background-image="https://tva3.sinaimg.cn/large/6833939bly1gipewf5l51j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gicmnywqgpj20zk0m8dwx.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclh5u05ej20zk0m87df.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giciusoyjnj219g0u0x56.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipesrnqv3j20zk0m8ava.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1gipeu1usa7j20zk0m8b29.jpg"></li>
+          <li class="item" data-background-image="https://tva1.sinaimg.cn/large/6833939bly1giclgrvbd6j20zk0m8qv5.jpg"></li>
         </ul>
       </div>
     </header>
@@ -150,87 +150,80 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
     
 
     <blockquote>
-<p>基本可以确定的是，我之前肯定是<strong>学会过</strong>递归的！！而且学会过很多次，可是每次都是学完就忘，过一段时间又不会了😩</p>
-<p><s>一定是递归的错</s>  这次一定好好努力学扎实一些！嗯！</p>
+<p>基本可以确定的是，我之前肯定是<strong>学会过</strong>递归的！！而且学会过很多次，可是每次都是学完就忘，过一段时间又不会了:weary:</p>
+<p><del>一定是递归的错</del>  这次一定好好努力学扎实一些！嗯！</p>
 <p><img data-src="/images/%E8%BF%99%E6%AC%A1%E7%9C%9F%E7%9A%84%E5%AD%A6%E4%BC%9A%E4%BA%86%E9%80%92%E5%BD%92/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220319124630.jpg" alt="微信图片_20220319124630"></p>
 </blockquote>
-<h2 id="概述"><a class="markdownIt-Anchor" href="#概述">#</a> 概述</h2>
-<h3 id="什么是递归"><a class="markdownIt-Anchor" href="#什么是递归">#</a> 什么是递归</h3>
-<ul>
+<h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h2><h3 id="什么是递归"><a href="#什么是递归" class="headerlink" title="什么是递归"></a>什么是递归</h3><ul>
 <li>在运行的过程中调用自己</li>
-<li>可以理解为 n 叉树
-<ul>
-<li>在递归中只调用自己一次 ——1 叉树</li>
-<li>在递归中调用自己两次 ——2 叉树</li>
-<li>在递归中调用自己 n 次 ——n 叉树</li>
+<li>可以理解为n叉树<ul>
+<li>在递归中只调用自己一次——1叉树</li>
+<li>在递归中调用自己两次——2叉树</li>
+<li>在递归中调用自己n次——n叉树</li>
 </ul>
 </li>
 </ul>
-<h2 id="构成递归的条件"><a class="markdownIt-Anchor" href="#构成递归的条件">#</a> 构成递归的条件</h2>
-<ol>
+<h2 id="构成递归的条件"><a href="#构成递归的条件" class="headerlink" title="构成递归的条件"></a>构成递归的条件</h2><ol>
 <li>可拆分：子问题和原始问题是同样的事情，并且更加简单</li>
-<li>需要有出口：不能无限制地调用本身，必须有出口，化简为非递归状况处理
-<ul>
-<li>一般是 if（xxx）	return；这个亚子</li>
+<li>需要有出口：不能无限制地调用本身，必须有出口，化简为非递归状况处理<ul>
+<li>一般是if（xxx）    return；这个亚子</li>
 </ul>
 </li>
 </ol>
-<h3 id="模板"><a class="markdownIt-Anchor" href="#模板">#</a> 模板</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">recursion</span><span class="params">(参数<span class="number">0</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(终止条件)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    recursion(参数<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="例题"><a class="markdownIt-Anchor" href="#例题">#</a> 例题</h2>
-<blockquote>
+<h3 id="模板"><a href="#模板" class="headerlink" title="模板"></a>模板</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">recursion</span><span class="params">(参数<span class="number">0</span>)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(终止条件)&#123;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    recursion(参数<span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="例题"><a href="#例题" class="headerlink" title="例题"></a>例题</h2><blockquote>
 <p>关于递归的概述其实很简单，就是套娃</p>
-<p>用一些例题来加深理解吧～</p>
+<p>用一些例题来加深理解吧~</p>
 </blockquote>
-<h4 id="1阶乘"><a class="markdownIt-Anchor" href="#1阶乘">#</a> 1. 阶乘</h4>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">recursion</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n * recursion(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="2斐波那契数列"><a class="markdownIt-Anchor" href="#2斐波那契数列">#</a> 2. 斐波那契数列</h4>
-<p>简单描述一下斐波那契数列就是，第 0 项是 1，第 1 项是 1，从第 2 项开始，每一项都等于前两项之和，很简单的数列，中学数学题就遇到过</p>
+<h4 id="1-阶乘"><a href="#1-阶乘" class="headerlink" title="1.阶乘"></a>1.阶乘</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">recursion</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> n * recursion(n - <span class="number">1</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-斐波那契数列"><a href="#2-斐波那契数列" class="headerlink" title="2.斐波那契数列"></a>2.斐波那契数列</h4><p>简单描述一下斐波那契数列就是，第0项是1，第1项是1，从第2项开始，每一项都等于前两项之和，很简单的数列，中学数学题就遇到过</p>
 <blockquote>
 <p>1，1，2，3，5，……，(n-1)+(n-2)</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//为了方便理解，这里的n是从1起的</span></span><br><span class="line"><span class="keyword">public</span> <span class="type">int</span> <span class="title function_">fibonacci</span><span class="params">(<span class="type">int</span> n)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>( n == <span class="number">1</span> || n == <span class="number">2</span>)	<span class="keyword">return</span> <span class="number">1</span>;</span><br><span class="line">    <span class="keyword">return</span> fibonacci(n - <span class="number">1</span>) + fibnoacci(n - <span class="number">2</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="3汉诺塔"><a class="markdownIt-Anchor" href="#3汉诺塔">#</a> 3. 汉诺塔</h4>
-<p>也是很经典的题目呀～有 3 根柱子 A、B、C，A 柱子【由上到下】依次【从小到大】排列着圆盘。我们的任务是，把 A 柱子上的圆盘全部转移到 C 柱子上，并且在转移的过程中【始终】要保持【任何柱子上】的圆盘都是【由上到下】依次【从小到大】地排列着。</p>
-<p>（<strong>写给未来某一天突然又不知道递归为何物的自己</strong>：汉诺塔以及后面的八皇后这两个问题的题目描述看起来有点绕，但是其实仔细读一下就很好理解了，<s>如果连题目描述都读不懂就重开吧！<s>网上有很多别人的帖子将这个问题讲得都蛮好的，配了很多生动形象的插图，如果还是看不懂就搜一下别人的贴子</s>这篇帖子就不画图了没办法谁让我是个懒宝呢</s></p>
+
+<h4 id="3-汉诺塔"><a href="#3-汉诺塔" class="headerlink" title="3.汉诺塔"></a>3.汉诺塔</h4><p>也是很经典的题目呀~有3根柱子A、B、C，A柱子【由上到下】依次【从小到大】排列着圆盘。我们的任务是，把A柱子上的圆盘全部转移到C柱子上，并且在转移的过程中【始终】要保持【任何柱子上】的圆盘都是【由上到下】依次【从小到大】地排列着。</p>
+<p>（<strong>写给未来某一天突然又不知道递归为何物的自己</strong>：汉诺塔以及后面的八皇后这两个问题的题目描述看起来有点绕，但是其实仔细读一下就很好理解了，<del>如果连题目描述都读不懂就重开吧！</del>网上有很多别人的帖子将这个问题讲得都蛮好的，配了很多生动形象的插图，如果还是看不懂就搜一下别人的贴子<del>这篇帖子就不画图了没办法谁让我是个懒宝呢</del></p>
 <p><span class="exturl" data-url="aHR0cDovL3QuY3Nkbi5jbi9vcVVnOA==">汉诺塔（Hanoi）图解递归算法</span></p>
-<p>勤劳的技术分享博主，谢谢你们！😁😁😁</p>
-<h5 id="思考步骤"><a class="markdownIt-Anchor" href="#思考步骤">#</a> 思考步骤</h5>
-<ol>
-<li>
-<p>定义函数</p>
+<p>勤劳的技术分享博主，谢谢你们！:grin::grin::grin:</p>
+<h5 id="思考步骤"><a href="#思考步骤" class="headerlink" title="思考步骤"></a>思考步骤</h5><ol>
+<li><p>定义函数</p>
 <p><code>public void hanoi(int n , char A , char B , char C)</code></p>
-<p>表示把 n 个圆盘，从 A 柱子，借助 B 柱子，移动到 C 柱子</p>
+<p>表示把n个圆盘，从A柱子，借助B柱子，移动到C柱子</p>
 </li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">hanoi</span><span class="params">(<span class="type">int</span> n , <span class="type">char</span> A , <span class="type">char</span> B , <span class="type">char</span> C)</span>&#123;</span><br><span class="line">    <span class="keyword">if</span>(n == <span class="number">1</span>)&#123;</span><br><span class="line">        System.out.println(<span class="string">&quot;从&quot;</span>+A+<span class="string">&quot;移动到&quot;</span>+C+<span class="string">&quot;了喵~&quot;</span>);</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    hanoi(n - <span class="number">1</span> , A , C , B);  <span class="comment">//</span></span><br><span class="line">    System.out.println(<span class="string">&quot;从&quot;</span>+A+<span class="string">&quot;移动到&quot;</span>+C+<span class="string">&quot;了喵~&quot;</span>);</span><br><span class="line">    hanoi(n - <span class="number">1</span> , B , A , C);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>为了防止自己的笨蛋脑筋某一天又看不懂了，来一道 leetcode 面试原题 [<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvaGFub3RhLWxjY2kv">面试题 08.06. 汉诺塔问题</span>]</p>
+
+<p>为了防止自己的笨蛋脑筋某一天又看不懂了，来一道leetcode面试原题[<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvaGFub3RhLWxjY2kv">面试题 08.06. 汉诺塔问题</span>]</p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//先记录一下最初的错误解法，C++</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">hanota</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A, vector&lt;<span class="type">int</span>&gt;&amp; B, vector&lt;<span class="type">int</span>&gt;&amp; C)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> num = A.<span class="built_in">size</span>();  <span class="comment">//最下面的圆盘的下标</span></span><br><span class="line">        <span class="built_in">hanoi</span>(num , A , B , C);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">hanoi</span><span class="params">(<span class="type">int</span> n , vector&lt;<span class="type">int</span>&gt;&amp; A, vector&lt;<span class="type">int</span>&gt;&amp; B, vector&lt;<span class="type">int</span>&gt;&amp; C)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">1</span>) &#123;</span><br><span class="line">            C.<span class="built_in">push_back</span>(A[n - <span class="number">1</span>]);</span><br><span class="line">            <span class="keyword">return</span> ;</span><br><span class="line">        &#125; </span><br><span class="line">        <span class="built_in">hanoi</span>(n - <span class="number">1</span> , A , C , B);</span><br><span class="line">        C.<span class="built_in">push_back</span>(A[n - <span class="number">1</span>]); <span class="comment">//问题出在这里欧~！</span></span><br><span class="line">        <span class="built_in">hanoi</span>(n - <span class="number">1</span> , B , A , C);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="comment">//出错了，如下图所示。为什么把A中的元素push_back到C里，答案不对呢？</span></span><br><span class="line"><span class="comment">//仔细想想汉诺塔的移动过程，我们</span></span><br><span class="line"><span class="comment">//1. 首先要把n-1个圆盘【借助C从A移动到B】，此时A柱子上只有1个圆盘（即第n个），B柱子上有n-1个圆盘，C柱子是空的；</span></span><br><span class="line"><span class="comment">//2. 然后把第n个圆盘从A移动到C，此时A柱子是空的，B柱子上还是有n-1个圆盘，C柱子上有1个圆盘（即第n个）</span></span><br><span class="line"><span class="comment">//3. 然后把n-1个圆盘【借助A从B移动到C】。</span></span><br><span class="line"><span class="comment">//需要注意的是，被借助的柱子，初始状态应该是空的才对！也就是说，无论是A还是B或者C柱子，在移动的过程中都需要有【清空】的时候才对。那么！push_back只是取值啊，没有真正的移动，在这个过程中A永远不会是空。</span></span><br><span class="line"><span class="comment">//用remove欧~</span></span><br><span class="line"><span class="comment">//当然了还要注意的一个问题是：自定义函数hanoi里的A、B、C，和题目中指定好的A柱子、B柱子、C柱子是不一样的。hanoi函数的参数A表示的是【源柱子】，参数B表示的是【中间柱子】，参数C表示的是【目标柱子】。所以有的题解会把A叫做from，B叫做process，C叫做to，是蛮清晰的。</span></span><br><span class="line"><span class="comment">//对了。输入样例是【从大到小】的。</span></span><br></pre></td></tr></table></figure>
-<p><img data-src="/images/%E8%BF%99%E6%AC%A1%E7%9C%9F%E7%9A%84%E5%AD%A6%E4%BC%9A%E4%BA%86%E9%80%92%E5%BD%92/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220320200916.png" alt="微信图片_20220320200916"><br>
- 正确的输入样例应该是 [3,2,1] 才对<s>无语你看看你输入的 [1,2,3] 是什么东西认真一点啊</s></p>
+
+<p><img data-src="/images/%E8%BF%99%E6%AC%A1%E7%9C%9F%E7%9A%84%E5%AD%A6%E4%BC%9A%E4%BA%86%E9%80%92%E5%BD%92/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220320200916.png" alt="微信图片_20220320200916"><br>正确的输入样例应该是[3,2,1]才对<del>无语你看看你输入的[1,2,3]是什么东西认真一点啊</del></p>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//正确答案！</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">hanota</span><span class="params">(vector&lt;<span class="type">int</span>&gt;&amp; A, vector&lt;<span class="type">int</span>&gt;&amp; B, vector&lt;<span class="type">int</span>&gt;&amp; C)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A.<span class="built_in">size</span>() == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="type">int</span> num = A.<span class="built_in">size</span>();  <span class="comment">//最下面的圆盘的【下标】</span></span><br><span class="line">        <span class="built_in">hanoi</span>(num , A , B , C);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">hanoi</span><span class="params">(<span class="type">int</span> n , vector&lt;<span class="type">int</span>&gt;&amp; A, vector&lt;<span class="type">int</span>&gt;&amp; B, vector&lt;<span class="type">int</span>&gt;&amp; C)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(n == <span class="number">0</span>)  <span class="keyword">return</span> ;</span><br><span class="line">        <span class="built_in">hanoi</span>(n - <span class="number">1</span> , A , C , B);</span><br><span class="line">        C.<span class="built_in">push_back</span>(A.<span class="built_in">back</span>());<span class="comment">//是A.back(),不是A[n-1]啊，因为输入是【从大到小的！！】，最小的在最后面</span></span><br><span class="line">        A.<span class="built_in">pop_back</span>();</span><br><span class="line">        <span class="built_in">hanoi</span>(n - <span class="number">1</span> , B , A , C);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<h4 id="4n皇后"><a class="markdownIt-Anchor" href="#4n皇后">#</a> 4.N 皇后</h4>
-<p><code>N皇后 嗯嗯好酷的名字！</code></p>
+
+<h4 id="4-N皇后"><a href="#4-N皇后" class="headerlink" title="4.N皇后"></a>4.N皇后</h4><p><code>N皇后 嗯嗯好酷的名字！</code></p>
 <p>[<span class="exturl" data-url="aHR0cHM6Ly9sZWV0Y29kZS1jbi5jb20vcHJvYmxlbXMvbi1xdWVlbnMv">51. N 皇后</span>]</p>
 <blockquote>
-<p>n 皇后问题</p>
+<p>n 皇后问题 </p>
 <p>研究的是如何将 n 个皇后放置在 n×n 的棋盘上，并且使皇后彼此之间不能相互攻击。</p>
 <p>（同一条横线、竖线、斜线上最多只能站一个皇后）</p>
 <p>给你一个整数 n ，返回所有不同的 n 皇后问题 的解决方案。</p>
 <p>每一种解法包含一个不同的 n 皇后问题 的棋子放置方案，该方案中 ‘Q’ 和 ‘.’ 分别代表了皇后和空位。</p>
 </blockquote>
 <p><img data-src="/images/%E7%AE%97%E6%B3%95%E7%AC%94%E8%AE%B0-%E8%BF%99%E6%AC%A1%E7%9C%9F%E7%9A%84%E5%AD%A6%E4%BC%9A%E4%BA%86%E9%80%92%E5%BD%92/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20220321150503.png" alt="微信图片_20220321150503"></p>
-<p>解决 N 皇后问题，最关键的思路是 <code>回溯</code>  。什么是回溯？</p>
+<p>解决N皇后问题，最关键的思路是<code>回溯</code> 。什么是回溯？</p>
 <blockquote>
 <p>回溯和递归是相辅相成的，回溯的过程通常发生在递归函数之后。简单来讲就是递归加深深度，回溯撤销递归的操作。</p>
 <p>什么意思！</p>
-<p>拿 N 皇后来举例，当前位置合法（记作 current）之后，就会寻找下一行（row+1）的合法位置，假如没找到合法位置怎么办呢？这说明 current 不是合适的皇后位置，那就回退到 current，并且把此处的 ‘ Q ’ 修改为 ‘ . ’ 。这就是回溯在干的事情欧～</p>
-<p>（还有一种情况就是当前搜索路径是完完全全的合法路径，是要存到 result 里最后返回为答案的正确路径，那么在搜索出一条合法路径之后，也是需要一步步回溯到初始状态，进行下一条合法路径的搜索欧。</p>
+<p>拿N皇后来举例，当前位置合法（记作current）之后，就会寻找下一行（row+1）的合法位置，假如没找到合法位置怎么办呢？这说明current不是合适的皇后位置，那就回退到current，并且把此处的 ‘ Q ’ 修改为 ‘ . ’ 。这就是回溯在干的事情欧~</p>
+<p>（还有一种情况就是当前搜索路径是完完全全的合法路径，是要存到result里最后返回为答案的正确路径，那么在搜索出一条合法路径之后，也是需要一步步回溯到初始状态，进行下一条合法路径的搜索欧。</p>
 </blockquote>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//chessboard的类型是一维string类型的数组：vector&lt;string&gt;,存放单个棋盘合法的摆放情况</span></span><br><span class="line"><span class="comment">//result的类型是二维数组：vector&lt;vector&lt;string&gt;&gt;，存放所有的chessboard</span></span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solution</span> &#123;</span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; result; <span class="comment">//存放结果</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="type">void</span> <span class="title">backtracking</span><span class="params">(<span class="type">int</span> n, <span class="type">int</span> row, vector&lt;string&gt;&amp; chessboard)</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(row == n)&#123; <span class="comment">//终止条件：搜索到了最后一行</span></span><br><span class="line">            result.<span class="built_in">emplace_back</span>(chessboard);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> col = <span class="number">0</span>; col &lt; n ; col ++)&#123;<span class="comment">//按列搜索，需要注意上界：col &lt; n 不能取等！（一开始就是这里WA了</span></span><br><span class="line">            <span class="keyword">if</span>(<span class="built_in">isValid</span>(row,col,chessboard,n))&#123;</span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;Q&#x27;</span>;  <span class="comment">//标记为皇后位置（临时的，能不能永存还要看后面的搜索情况）</span></span><br><span class="line">                <span class="built_in">backtracking</span>(n, row+<span class="number">1</span>, chessboard);  <span class="comment">//递归</span></span><br><span class="line">                chessboard[row][col] = <span class="string">&#x27;.&#x27;</span>;  <span class="comment">//回溯</span></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line"><span class="comment">//检查当前位置是否合法</span></span><br><span class="line">    <span class="function"><span class="type">bool</span> <span class="title">isValid</span><span class="params">(<span class="type">int</span> row , <span class="type">int</span> col , vector&lt;string&gt;&amp; chessboard , <span class="type">int</span> n)</span></span>&#123;</span><br><span class="line">        <span class="comment">// 检查同列，上方↑</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = <span class="number">0</span> ; i &lt; row ; i ++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][col] == <span class="string">&#x27;Q&#x27;</span>)   <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查斜线，左上↖</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = row<span class="number">-1</span> , j = col<span class="number">-1</span> ; i &gt;= <span class="number">0</span> &amp;&amp; j &gt;= <span class="number">0</span> ; i-- , j--)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 检查斜线，右上↗</span></span><br><span class="line">        <span class="keyword">for</span>(<span class="type">int</span> i = row <span class="number">-1</span> , j = col+<span class="number">1</span> ; i &gt;= <span class="number">0</span> &amp;&amp; j &lt; n ; i-- , j++)&#123;</span><br><span class="line">            <span class="keyword">if</span>(chessboard[i][j] == <span class="string">&#x27;Q&#x27;</span>) <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    vector&lt;vector&lt;string&gt;&gt; <span class="built_in">solveNQueens</span>(<span class="type">int</span> n) &#123;</span><br><span class="line">        result.<span class="built_in">clear</span>();  <span class="comment">//这句话最好加上</span></span><br><span class="line">        <span class="function">vector&lt;string&gt; <span class="title">chessboard</span><span class="params">(n, string(n, <span class="string">&#x27;.&#x27;</span>))</span></span>;  <span class="comment">//初始化单个棋盘</span></span><br><span class="line">        <span class="built_in">backtracking</span>(n, <span class="number">0</span>, chessboard);</span><br><span class="line">        <span class="keyword">return</span> result;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
 <p><code>现在做N皇后这道题，还是蛮有感慨的！因为本科的时候初次进入ACM教室，还记得是一个周六的下午，那天下午在教室里看了一下午这道题，当时很菜（现在依然很菜），看题解都看了半天才好像看懂了一点点，但是仍然记得的是当时那种【恍然大悟】、【哇题解好聪明】、【这道题好有意思】的感觉。</code></p>
 <blockquote>
-<p>如今我只想说 <s>一切都是最好的安排那就继续烂吧等待命运的安排</s> 继续加油吧！</p>
+<p>如今我只想说 <del>一切都是最好的安排那就继续烂吧等待命运的安排</del> 继续加油吧！</p>
 <p>以后应该会不定期补一些递归的题解进来。</p>
 </blockquote>
 <p><code>对了！目前还不知道评论功能怎么做，所以假如除了我自己之外还有好兄弟看到我的文章，如果我有写错的地方或者其他的疑问，可以发邮件给我！893766623@qq.com感谢感谢感谢~~~就酱~886</code></p>
@@ -295,7 +288,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
     <div class="item left">
       
 
-  <a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giph4baakhj20zk0m8h5q.jpg" title="小月饼日记3:小猫每天要睡满20小时">
+  <a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" itemprop="url" rel="prev" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1giclfdu6exj20zk0m87hw.jpg" title="小月饼日记3:小猫每天要睡满20小时">
   <span class="type">上一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>小月饼日记3:小猫每天要睡满20小时</h3>
@@ -305,7 +298,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
     <div class="item right">
       
 
-  <a href="/2022/03/20/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B04%E6%82%A0%E9%97%B2%E7%9A%84%E4%B8%80%E5%A4%A9/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva3.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipeyonbf9j20zk0m8e81.jpg" title="小月饼日记4:悠闲的一天">
+  <a href="/2022/03/20/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B04%E6%82%A0%E9%97%B2%E7%9A%84%E4%B8%80%E5%A4%A9/" itemprop="url" rel="next" data-background-image="https:&#x2F;&#x2F;tva1.sinaimg.cn&#x2F;mw690&#x2F;6833939bly1gipetfk5zwj20zk0m8e81.jpg" title="小月饼日记4:悠闲的一天">
   <span class="type">下一篇</span>
   <span class="category"><i class="ic i-flag"></i> </span>
   <h3>小月饼日记4:悠闲的一天</h3>
@@ -327,7 +320,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
   <div class="panels">
     <div class="inner">
       <div class="contents panel pjax" data-title="文章目录">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text"> 概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%92%E5%BD%92"><span class="toc-number">1.1.</span> <span class="toc-text"> 什么是递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E6%88%90%E9%80%92%E5%BD%92%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text"> 构成递归的条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.1.</span> <span class="toc-text"> 模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text"> 例题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%E9%98%B6%E4%B9%98"><span class="toc-number">3.0.1.</span> <span class="toc-text"> 1. 阶乘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-number">3.0.2.</span> <span class="toc-text"> 2. 斐波那契数列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%E6%B1%89%E8%AF%BA%E5%A1%94"><span class="toc-number">3.0.3.</span> <span class="toc-text"> 3. 汉诺塔</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.0.3.1.</span> <span class="toc-text"> 思考步骤</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4n%E7%9A%87%E5%90%8E"><span class="toc-number">3.0.4.</span> <span class="toc-text"> 4.N 皇后</span></a></li></ol></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E8%BF%B0"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF%E9%80%92%E5%BD%92"><span class="toc-number">1.1.</span> <span class="toc-text">什么是递归</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E6%88%90%E9%80%92%E5%BD%92%E7%9A%84%E6%9D%A1%E4%BB%B6"><span class="toc-number">2.</span> <span class="toc-text">构成递归的条件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E6%9D%BF"><span class="toc-number">2.1.</span> <span class="toc-text">模板</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E9%A2%98"><span class="toc-number">3.</span> <span class="toc-text">例题</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-%E9%98%B6%E4%B9%98"><span class="toc-number">3.0.1.</span> <span class="toc-text">1.阶乘</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-%E6%96%90%E6%B3%A2%E9%82%A3%E5%A5%91%E6%95%B0%E5%88%97"><span class="toc-number">3.0.2.</span> <span class="toc-text">2.斐波那契数列</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-%E6%B1%89%E8%AF%BA%E5%A1%94"><span class="toc-number">3.0.3.</span> <span class="toc-text">3.汉诺塔</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E6%80%9D%E8%80%83%E6%AD%A5%E9%AA%A4"><span class="toc-number">3.0.3.1.</span> <span class="toc-text">思考步骤</span></a></li></ol></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-N%E7%9A%87%E5%90%8E"><span class="toc-number">3.0.4.</span> <span class="toc-text">4.N皇后</span></a></li></ol></li></ol></li></ol>
       </div>
       <div class="related panel pjax" data-title="系列文章">
       </div>
@@ -432,61 +425,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" title="小月饼日记3:小猫每天要睡满20小时">小月饼日记3:小猫每天要睡满20小时</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/17/hello-world/" title="初めまして！">初めまして！</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/21/ayanamisaki%E4%B8%80%E5%91%A8%E9%A3%9F%E8%B0%B1/" title="ayanamisaki一周食谱">ayanamisaki一周食谱</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/21/%E6%88%91%E5%B8%8C%E6%9C%9B%E6%88%91%E6%98%AF%E4%B8%80%E4%B8%AA%E6%97%A0%E8%81%8A%E7%9A%84%E4%BA%BA%E3%80%82/" title="中二病历本1:我希望我是一个无聊的人。">中二病历本1:我希望我是一个无聊的人。</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B02%E4%B8%8B%E9%9B%AA%E4%BA%86/" title="小月饼日记2:下雪了">小月饼日记2:下雪了</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/26/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B07%E4%B8%8D%E6%9C%8D%E7%AE%A1%E6%95%99%E7%9A%84%E4%B8%8B%E5%9C%BA/" title="小月饼日记7 不服管教的下场">小月饼日记7 不服管教的下场</a></span>
-  </li>
-
-      
-  <li class="item">
-    
-<div class="breadcrumb">
-</div>
-
-    <span><a href="/2022/03/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-NeRF-NeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/" title="论文笔记-NeRF-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis">论文笔记-NeRF-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis</a></span>
+    <span><a href="/2022/03/18/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B01%E4%BB%86%E4%BA%BA%E9%83%BD%E6%98%AF%E7%AC%A8%E8%9B%8B/" title="小月饼日记1:仆人都是笨蛋">小月饼日记1:仆人都是笨蛋</a></span>
   </li>
 
       
@@ -504,7 +443,7 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/03/18/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B01%E4%BB%86%E4%BA%BA%E9%83%BD%E6%98%AF%E7%AC%A8%E8%9B%8B/" title="小月饼日记1:仆人都是笨蛋">小月饼日记1:仆人都是笨蛋</a></span>
+    <span><a href="/2022/05/13/ayanamisaki%E5%B8%B8%E8%A7%81%E9%A3%9F%E7%89%A9%E7%83%AD%E9%87%8F/" title="健康之友：常见食物热量">健康之友：常见食物热量</a></span>
   </li>
 
       
@@ -513,7 +452,61 @@ ayanamisaki = ૮₍ ˃ ⤙ ˂ ₎ა </title>
 <div class="breadcrumb">
 </div>
 
-    <span><a href="/2022/05/13/ayanamisaki%E5%B8%B8%E8%A7%81%E9%A3%9F%E7%89%A9%E7%83%AD%E9%87%8F/" title="健康之友：常见食物热量">健康之友：常见食物热量</a></span>
+    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B02%E4%B8%8B%E9%9B%AA%E4%BA%86/" title="小月饼日记2:下雪了">小月饼日记2:下雪了</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/25/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B06%E6%88%91%E7%96%AF%E5%95%A6/" title="小月饼日记6:我疯啦">小月饼日记6:我疯啦</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/21/ayanamisaki%E4%B8%80%E5%91%A8%E9%A3%9F%E8%B0%B1/" title="ayanamisaki一周食谱">ayanamisaki一周食谱</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/20/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B04%E6%82%A0%E9%97%B2%E7%9A%84%E4%B8%80%E5%A4%A9/" title="小月饼日记4:悠闲的一天">小月饼日记4:悠闲的一天</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/17/hello-world/" title="初めまして！">初めまして！</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/18/%E8%AE%BA%E6%96%87%E7%AC%94%E8%AE%B0-NeRF-NeRF%20Representing%20Scenes%20as%20Neural%20Radiance%20Fields%20for%20View%20Synthesis/" title="论文笔记-NeRF-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis">论文笔记-NeRF-NeRF Representing Scenes as Neural Radiance Fields for View Synthesis</a></span>
+  </li>
+
+      
+  <li class="item">
+    
+<div class="breadcrumb">
+</div>
+
+    <span><a href="/2022/03/19/%E5%B0%8F%E6%9C%88%E9%A5%BC%E6%97%A5%E8%AE%B03%E5%B0%8F%E7%8C%AB%E6%AF%8F%E5%A4%A9%E8%A6%81%E7%9D%A1%E6%BB%A120%E5%B0%8F%E6%97%B6/" title="小月饼日记3:小猫每天要睡满20小时">小月饼日记3:小猫每天要睡满20小时</a></span>
   </li>
 
   </ul>
